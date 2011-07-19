@@ -20,6 +20,11 @@
 		7E37A78E13D4FFD9005ECCCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A78C13D4FFD9005ECCCA /* InfoPlist.strings */; };
 		7E37A79113D4FFD9005ECCCA /* GraphingCalculatorTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A79013D4FFD9005ECCCA /* GraphingCalculatorTests.h */; };
 		7E37A79313D4FFD9005ECCCA /* GraphingCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A79213D4FFD9005ECCCA /* GraphingCalculatorTests.m */; };
+		7E37A79E13D5008D005ECCCA /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A79D13D5008D005ECCCA /* CalculatorBrain.m */; };
+		7E37A7A113D500AA005ECCCA /* CalculatorBrainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7A013D500AA005ECCCA /* CalculatorBrainTests.m */; };
+		7E37A7A413D500CD005ECCCA /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7A313D500CD005ECCCA /* CalculatorViewController.m */; };
+		7E37A7A613D500E2005ECCCA /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A7A513D500E2005ECCCA /* CalculatorViewController.xib */; };
+		7E37A7A813D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A7A713D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,19 +42,27 @@
 		7E37A76913D4FFD8005ECCCA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7E37A76B13D4FFD8005ECCCA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7E37A76D13D4FFD8005ECCCA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7E37A77113D4FFD8005ECCCA /* GraphingCalculator-Info.plist */ = {isa = PBXFileReference; path = "GraphingCalculator-Info.plist"; sourceTree = "<group>"; };
+		7E37A77113D4FFD8005ECCCA /* GraphingCalculator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraphingCalculator-Info.plist"; sourceTree = "<group>"; };
 		7E37A77313D4FFD8005ECCCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7E37A77513D4FFD8005ECCCA /* GraphingCalculator-Prefix.pch */ = {isa = PBXFileReference; path = "GraphingCalculator-Prefix.pch"; sourceTree = "<group>"; };
+		7E37A77513D4FFD8005ECCCA /* GraphingCalculator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GraphingCalculator-Prefix.pch"; sourceTree = "<group>"; };
 		7E37A77613D4FFD8005ECCCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7E37A77813D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.h */ = {isa = PBXFileReference; path = GraphingCalculatorAppDelegate.h; sourceTree = "<group>"; };
+		7E37A77813D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphingCalculatorAppDelegate.h; sourceTree = "<group>"; };
 		7E37A77913D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphingCalculatorAppDelegate.m; sourceTree = "<group>"; };
 		7E37A77C13D4FFD8005ECCCA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		7E37A78313D4FFD9005ECCCA /* GraphingCalculatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphingCalculatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E37A78B13D4FFD9005ECCCA /* GraphingCalculatorTests-Info.plist */ = {isa = PBXFileReference; path = "GraphingCalculatorTests-Info.plist"; sourceTree = "<group>"; };
+		7E37A78B13D4FFD9005ECCCA /* GraphingCalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraphingCalculatorTests-Info.plist"; sourceTree = "<group>"; };
 		7E37A78D13D4FFD9005ECCCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7E37A78F13D4FFD9005ECCCA /* GraphingCalculatorTests-Prefix.pch */ = {isa = PBXFileReference; path = "GraphingCalculatorTests-Prefix.pch"; sourceTree = "<group>"; };
+		7E37A78F13D4FFD9005ECCCA /* GraphingCalculatorTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GraphingCalculatorTests-Prefix.pch"; sourceTree = "<group>"; };
 		7E37A79013D4FFD9005ECCCA /* GraphingCalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphingCalculatorTests.h; sourceTree = "<group>"; };
 		7E37A79213D4FFD9005ECCCA /* GraphingCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphingCalculatorTests.m; sourceTree = "<group>"; };
+		7E37A79C13D5008D005ECCCA /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
+		7E37A79D13D5008D005ECCCA /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
+		7E37A79F13D500AA005ECCCA /* CalculatorBrainTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrainTests.h; sourceTree = "<group>"; };
+		7E37A7A013D500AA005ECCCA /* CalculatorBrainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrainTests.m; sourceTree = "<group>"; };
+		7E37A7A213D500CD005ECCCA /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
+		7E37A7A313D500CD005ECCCA /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
+		7E37A7A513D500E2005ECCCA /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
+		7E37A7A713D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0000003502150_001c_V001_zp.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +121,15 @@
 		7E37A76F13D4FFD8005ECCCA /* GraphingCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				7E37A7A713D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg */,
+				7E37A79C13D5008D005ECCCA /* CalculatorBrain.h */,
+				7E37A79D13D5008D005ECCCA /* CalculatorBrain.m */,
+				7E37A7A213D500CD005ECCCA /* CalculatorViewController.h */,
+				7E37A7A313D500CD005ECCCA /* CalculatorViewController.m */,
 				7E37A77813D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.h */,
 				7E37A77913D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.m */,
 				7E37A77B13D4FFD8005ECCCA /* MainWindow.xib */,
+				7E37A7A513D500E2005ECCCA /* CalculatorViewController.xib */,
 				7E37A77013D4FFD8005ECCCA /* Supporting Files */,
 			);
 			path = GraphingCalculator;
@@ -130,6 +149,8 @@
 		7E37A78913D4FFD9005ECCCA /* GraphingCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				7E37A79F13D500AA005ECCCA /* CalculatorBrainTests.h */,
+				7E37A7A013D500AA005ECCCA /* CalculatorBrainTests.m */,
 				7E37A79013D4FFD9005ECCCA /* GraphingCalculatorTests.h */,
 				7E37A79213D4FFD9005ECCCA /* GraphingCalculatorTests.m */,
 				7E37A78A13D4FFD9005ECCCA /* Supporting Files */,
@@ -219,6 +240,8 @@
 			files = (
 				7E37A77413D4FFD8005ECCCA /* InfoPlist.strings in Resources */,
 				7E37A77D13D4FFD8005ECCCA /* MainWindow.xib in Resources */,
+				7E37A7A613D500E2005ECCCA /* CalculatorViewController.xib in Resources */,
+				7E37A7A813D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +279,8 @@
 			files = (
 				7E37A77713D4FFD8005ECCCA /* main.m in Sources */,
 				7E37A77A13D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.m in Sources */,
+				7E37A79E13D5008D005ECCCA /* CalculatorBrain.m in Sources */,
+				7E37A7A413D500CD005ECCCA /* CalculatorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E37A79313D4FFD9005ECCCA /* GraphingCalculatorTests.m in Sources */,
+				7E37A7A113D500AA005ECCCA /* CalculatorBrainTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
