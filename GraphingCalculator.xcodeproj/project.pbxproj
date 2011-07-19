@@ -25,6 +25,10 @@
 		7E37A7A413D500CD005ECCCA /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7A313D500CD005ECCCA /* CalculatorViewController.m */; };
 		7E37A7A613D500E2005ECCCA /* CalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A7A513D500E2005ECCCA /* CalculatorViewController.xib */; };
 		7E37A7A813D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A7A713D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg */; };
+		7E37A7AB13D51ACA005ECCCA /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7AA13D51ACA005ECCCA /* GraphView.m */; };
+		7E37A7AE13D51B6D005ECCCA /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7AD13D51B6D005ECCCA /* AxesDrawer.m */; };
+		7E37A7B713D51E4F005ECCCA /* GraphAndZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */; };
+		7E37A7B813D51E4F005ECCCA /* GraphAndZoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,13 @@
 		7E37A7A313D500CD005ECCCA /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		7E37A7A513D500E2005ECCCA /* CalculatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculatorViewController.xib; sourceTree = "<group>"; };
 		7E37A7A713D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0000003502150_001c_V001_zp.jpeg; sourceTree = "<group>"; };
+		7E37A7A913D51ACA005ECCCA /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		7E37A7AA13D51ACA005ECCCA /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		7E37A7AC13D51B6D005ECCCA /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
+		7E37A7AD13D51B6D005ECCCA /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
+		7E37A7B413D51E4F005ECCCA /* GraphAndZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphAndZoomViewController.h; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.h; sourceTree = SOURCE_ROOT; };
+		7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphAndZoomViewController.m; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.m; sourceTree = SOURCE_ROOT; };
+		7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphAndZoomViewController.xib; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +133,17 @@
 			isa = PBXGroup;
 			children = (
 				7E37A7A713D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg */,
+				7E37A7AC13D51B6D005ECCCA /* AxesDrawer.h */,
+				7E37A7AD13D51B6D005ECCCA /* AxesDrawer.m */,
 				7E37A79C13D5008D005ECCCA /* CalculatorBrain.h */,
 				7E37A79D13D5008D005ECCCA /* CalculatorBrain.m */,
 				7E37A7A213D500CD005ECCCA /* CalculatorViewController.h */,
 				7E37A7A313D500CD005ECCCA /* CalculatorViewController.m */,
+				7E37A7B413D51E4F005ECCCA /* GraphAndZoomViewController.h */,
+				7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */,
+				7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */,
+				7E37A7A913D51ACA005ECCCA /* GraphView.h */,
+				7E37A7AA13D51ACA005ECCCA /* GraphView.m */,
 				7E37A77813D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.h */,
 				7E37A77913D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.m */,
 				7E37A77B13D4FFD8005ECCCA /* MainWindow.xib */,
@@ -242,6 +260,7 @@
 				7E37A77D13D4FFD8005ECCCA /* MainWindow.xib in Resources */,
 				7E37A7A613D500E2005ECCCA /* CalculatorViewController.xib in Resources */,
 				7E37A7A813D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg in Resources */,
+				7E37A7B813D51E4F005ECCCA /* GraphAndZoomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +300,9 @@
 				7E37A77A13D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.m in Sources */,
 				7E37A79E13D5008D005ECCCA /* CalculatorBrain.m in Sources */,
 				7E37A7A413D500CD005ECCCA /* CalculatorViewController.m in Sources */,
+				7E37A7AB13D51ACA005ECCCA /* GraphView.m in Sources */,
+				7E37A7AE13D51B6D005ECCCA /* AxesDrawer.m in Sources */,
+				7E37A7B713D51E4F005ECCCA /* GraphAndZoomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

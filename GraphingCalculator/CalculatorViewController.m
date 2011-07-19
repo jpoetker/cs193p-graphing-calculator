@@ -7,6 +7,7 @@
 //
 
 #import "CalculatorViewController.h"
+#import "GraphAndZoomViewController.h"
 
 @interface CalculatorViewController() 
 @property (readonly) CalculatorBrain *brain;
@@ -123,15 +124,19 @@
     
     [self applyEqualsIfNeccesaryForSolve];
     
-    id expression = self.brain.expression;
-    NSDictionary *variables = [self generateTestVariables: expression];
-    
-    NSLog(@"Solving %@ with %@", expression, variables);
-    
-    double answer = [CalculatorBrain evaluateExpression:expression usingVariables:variables];
-    
-    display.text = [NSString stringWithFormat:@"%@ %g", [CalculatorBrain descriptionOfExpression:expression], answer];
-    
+//    id expression = self.brain.expression;
+//    NSDictionary *variables = [self generateTestVariables: expression];
+//    
+//    NSLog(@"Solving %@ with %@", expression, variables);
+//    
+//    double answer = [CalculatorBrain evaluateExpression:expression usingVariables:variables];
+//    
+//    display.text = [NSString stringWithFormat:@"%@ %g", [CalculatorBrain descriptionOfExpression:expression], answer];
+    GraphAndZoomViewController *gzvc = [[GraphAndZoomViewController alloc] init];
+    gzvc.title = [[CalculatorBrain descriptionOfExpression:self.brain.expression] stringByAppendingString:@" y"];
+    gzvc.expression = self.brain.expression;
+    [self.navigationController pushViewController: gzvc animated:YES];
+    [gzvc release];
 }
 
 - (void)dealloc
