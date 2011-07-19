@@ -59,7 +59,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(CGFloat) yValueGiven: (CGFloat) x for: (GraphView *)requestor {
+-(double) yValueGiven: (double) x for: (GraphView *)requestor {
     NSDictionary *values = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: x] forKey:@"x"];
     return [CalculatorBrain evaluateExpression:self.expression usingVariables:values];
 }

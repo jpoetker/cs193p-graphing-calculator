@@ -55,8 +55,8 @@
         CGFloat xValue = [self convertXPixelToGraphValueX:x originAtPoint:midPoint scale:self.scale];
         CGFloat yValue = [delegate yValueGiven: xValue for: self];
         CGFloat y = [self convertYValueToYPixel:yValue originAtPoint:midPoint scale:self.scale];
-        NSLog(@"%f = %f", xValue, yValue);
-        NSLog(@"Pixels: (%d, %f)", x, y);
+//        NSLog(@"%f = %f", xValue, yValue);
+//        NSLog(@"Pixels: (%d, %f)", x, y);
         
         CGPoint graphPoint;
         graphPoint.x = x/self.contentScaleFactor;

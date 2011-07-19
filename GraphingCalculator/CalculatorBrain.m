@@ -28,7 +28,7 @@
     }
     [internalExpression addObject: term];
     
-    NSLog(@"%@", internalExpression);
+//    NSLog(@"%@", internalExpression);
 }
 
 - (void) releaseInternalExpression

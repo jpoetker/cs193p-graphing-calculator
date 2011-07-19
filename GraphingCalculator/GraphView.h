@@ -11,7 +11,7 @@
 @class GraphView;
 
 @protocol GraphViewDelegate
--(CGFloat) yValueGiven: (CGFloat) x for: (GraphView *)requestor;
+-(double) yValueGiven: (double) x for: (GraphView *)requestor;
 @end
 
 @interface GraphView : UIView {
