@@ -12,12 +12,16 @@
 @implementation GraphAndZoomViewController
 @synthesize graphView;
 @synthesize expression;
+@synthesize scale;
+@synthesize useLines;
+@synthesize useLinesSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.scale = 14;
+        self.useLines = YES;
     }
     return self;
 }
@@ -25,6 +29,7 @@
 - (void)dealloc
 {
     [graphView release];
+    [useLinesSwitch release];
     [super dealloc];
 }
 
@@ -43,24 +48,53 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.graphView.delegate = self;
+    self.graphView.scale = self.scale;
+    self.graphView.useLines = self.useLines;
+    self.useLinesSwitch.on = self.useLines;
 }
 
 - (void)viewDidUnload
 {
     [self setGraphView:nil];
+    [self setUseLinesSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.graphView setNeedsDisplay];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(void)updateGraphDisplay
+{
+    self.graphView.scale = self.scale;
+    self.graphView.useLines = self.useLines;
+    [self.graphView setNeedsDisplay];
 }
 
 -(double) yValueGiven: (double) x for: (GraphView *)requestor {
     NSDictionary *values = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat: x] forKey:@"x"];
     return [CalculatorBrain evaluateExpression:self.expression usingVariables:values];
+}
+
+- (IBAction)zoomButtonPressed:(UIButton *)sender {
+    if ([@"Zoom In" isEqualToString: sender.titleLabel.text]) {
+        self.scale = self.scale * 2;
+    } else {
+        self.scale = self.scale / 2;
+    }
+    [self updateGraphDisplay];
+}
+
+- (IBAction)useLinesChange:(UISwitch *)sender {
+    self.useLines = sender.on;
+    [self updateGraphDisplay];
 }
 @end

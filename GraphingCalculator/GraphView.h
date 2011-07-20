@@ -16,9 +16,12 @@
 
 @interface GraphView : UIView {
     id <GraphViewDelegate> delegate;
+    float scale;
+    BOOL useLines;
 }
 
 @property (assign) id <GraphViewDelegate> delegate;
 @property float scale;
+@property BOOL useLines;
 
 @end
