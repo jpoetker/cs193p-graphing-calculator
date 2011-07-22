@@ -13,12 +13,12 @@
 @implementation GraphView
 
 @synthesize delegate;
-@synthesize scale, useLines;
+
 
 -(void) setup 
 {
     self.useLines = YES;
-    self.scale = 14;
+    [super setContentMode: UIViewContentModeRedraw];
 }
 
 - (void)awakeFromNib {
@@ -32,6 +32,29 @@
         [self setup];
     }
     return self;
+}
+
+#define DEFAULT_SCALE 14;
+
+-(void)setScale:(CGFloat) newScale {
+    if (scale != newScale) {
+        scale = newScale;
+        [self setNeedsDisplay];
+    }
+}
+-(CGFloat) scale
+{
+    return (scale) ? scale : DEFAULT_SCALE;
+}
+
+-(void)setUseLines:(BOOL) drawWithLines
+{   
+    useLines = drawWithLines;
+    [self setNeedsDisplay];
+}
+-(BOOL)useLines
+{
+    return useLines;
 }
 
 - (double) convertXPixelToGraphValueX: (CGFloat) x originAtPoint: (CGPoint) midPoint scale: (CGFloat) s

@@ -61,10 +61,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [self.graphView setNeedsDisplay];
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

@@ -21,7 +21,7 @@
 }
 
 @property (assign) id <GraphViewDelegate> delegate;
-@property float scale;
+@property CGFloat scale;
 @property BOOL useLines;
 
 @end
