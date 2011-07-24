@@ -19,13 +19,34 @@
     return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 }
 
+- (void)storeApplicationData
+{
+    [[NSUserDefaults standardUserDefaults] setFloat:calcController.graphViewController.origin.x forKey:@"graphViewOriginX"];
+    [[NSUserDefaults standardUserDefaults] setFloat:calcController.graphViewController.origin.y forKey:@"graphViewOriginY"];
+    [[NSUserDefaults standardUserDefaults] setFloat:calcController.graphViewController.scale forKey:@"graphViewScale"];
+    [[NSUserDefaults standardUserDefaults] setObject: [CalculatorBrain propertyListForExpression: calcController.graphViewController.expression] forKey:@"grapViewExpression"];
+    
+}
+
+-(void)loadApplicationData
+{
+    CGFloat originX = [[NSUserDefaults standardUserDefaults] floatForKey:@"graphViewOriginX"];
+    CGFloat originY = [[NSUserDefaults standardUserDefaults] floatForKey:@"graphViewOriginY"];
+    calcController.graphViewController.origin = CGPointMake(originX, originY);
+    
+    calcController.graphViewController.scale = [[NSUserDefaults standardUserDefaults] floatForKey:@"graphViewScale"];
+    calcController.graphViewController.expression = [CalculatorBrain expressionForPropertyList:[[NSUserDefaults standardUserDefaults] objectForKey:@"graphViewExpression"]];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UINavigationController *navController = [[UINavigationController alloc]  init];
-    CalculatorViewController *calcController = [[CalculatorViewController alloc] init];
+    navController = [[UINavigationController alloc]  init];
+    calcController = [[CalculatorViewController alloc] init];
     
     [navController pushViewController:calcController animated:NO];
+    
+    [self loadApplicationData];
     
     if (self.iPad) {
         UISplitViewController *svc = [[UISplitViewController alloc] init];
@@ -41,7 +62,6 @@
         [self.window addSubview:navController.view];                                          
     }
     
-    [calcController release];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -61,6 +81,7 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    [self storeApplicationData];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -84,11 +105,14 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    [self storeApplicationData];
 }
 
 - (void)dealloc
 {
     [_window release];
+    [calcController release];
+    [navController release];
     [super dealloc];
 }
 

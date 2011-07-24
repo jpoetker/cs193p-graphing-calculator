@@ -21,6 +21,6 @@
 @property (nonatomic, retain) id expression;
 @property (nonatomic) CGFloat scale;
 @property (nonatomic) BOOL useLines;
-
+@property (nonatomic) CGPoint origin;
 
 @end

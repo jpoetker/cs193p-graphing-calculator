@@ -157,8 +157,18 @@
 
 - (CGSize)contentSizeForViewInPopover
 {
-    return self.view.bounds.size;
+    CGRect viewFrame = CGRectZero;
+    
+    for(UIView *subview in self.view.subviews) {
+        viewFrame = CGRectUnion(subview.frame, viewFrame);
+    }
+    
+    viewFrame.size.width += 20;
+    viewFrame.size.height += 20;
+    
+    return viewFrame.size;
 }
+
 - (void)dealloc
 {
     [brain release];

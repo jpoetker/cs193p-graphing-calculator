@@ -39,6 +39,17 @@
     [super dealloc];
 }
 
+// I know this probably isn't "correct" - maybe there should 
+// be a model....
+-(CGPoint) origin
+{
+    return self.graphView.origin;
+}
+-(void) setOrigin:(CGPoint) point
+{
+    self.graphView.origin = point;
+}
+
 -(void)setExpression:(id)anExpression
 {
     [expression release];

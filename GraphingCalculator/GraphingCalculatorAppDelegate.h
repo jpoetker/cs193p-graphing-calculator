@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalculatorViewController.h"
 
 @interface GraphingCalculatorAppDelegate : NSObject <UIApplicationDelegate> {
-    
+    @private
+    UINavigationController *navController;
+    CalculatorViewController *calcController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
