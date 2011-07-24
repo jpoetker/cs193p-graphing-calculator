@@ -78,6 +78,16 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)loadDefaults
+{
+    CGFloat originX = [[NSUserDefaults standardUserDefaults] floatForKey:@"graphViewOriginX"];
+    CGFloat originY = [[NSUserDefaults standardUserDefaults] floatForKey:@"graphViewOriginY"];
+    self.origin = CGPointMake(originX, originY);
+    
+    self.scale = [[NSUserDefaults standardUserDefaults] floatForKey:@"graphViewScale"];
+}
+
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -85,9 +95,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.graphView.delegate = self;
-    self.graphView.scale = self.scale;
-    self.graphView.useLines = self.useLines;
 
+    [self loadDefaults];
+    
     // Set up Pan Gesture
     UIGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget: self.graphView action:@selector(pan:)];
     [self.graphView addGestureRecognizer:panGesture];
@@ -111,6 +121,7 @@
     // e.g. self.myOutlet = nil;
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -125,6 +136,20 @@
     return [CalculatorBrain evaluateExpression:self.expression usingVariables:values];
 }
 
+-(void)scaleChangedTo:(CGFloat)scaleValue for:(GraphView *)requestor
+{
+    self.scale = scaleValue;
+    [[NSUserDefaults standardUserDefaults] setFloat: self.scale forKey:@"graphViewScale"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)originMovedTo:(CGPoint)origin for:(GraphView *)requestor
+{
+    self.origin = origin;
+    [[NSUserDefaults standardUserDefaults] setFloat: self.origin.x forKey: @"graphViewOriginX"];
+    [[NSUserDefaults standardUserDefaults] setFloat: self.origin.y forKey:@"graphViewOriginY"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 -(void)splitViewController:(UISplitViewController *)svc 
     willHideViewController:(UIViewController *)aViewController 

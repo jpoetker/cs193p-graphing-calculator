@@ -36,6 +36,13 @@
     return graphViewController;
 }
 
+-(void)updateExpressionInGrapView
+{
+    
+    self.graphViewController.title = [[CalculatorBrain descriptionOfExpression:self.brain.expression] stringByAppendingString:@" y"];
+    self.graphViewController.expression = self.brain.expression;
+}
+
 - (IBAction)digitPressed:(UIButton *)sender
 {
     NSString *digit = sender.titleLabel.text;
@@ -138,13 +145,18 @@
     
     [self applyEqualsIfNeccesaryForSolve];
 
-    self.graphViewController.title = [[CalculatorBrain descriptionOfExpression:self.brain.expression] stringByAppendingString:@" y"];
-    self.graphViewController.expression = self.brain.expression;
+    [self updateExpressionInGrapView];
     
     if (self.graphViewController.view.window == nil) {
         [self.navigationController pushViewController: self.graphViewController animated:YES];
     }
+    // I'm going to save the expression on solve
+    
+    [[NSUserDefaults standardUserDefaults] setObject: [CalculatorBrain expressionForPropertyList: self.brain.expression] forKey: @"graphViewExpression"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
+
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
 {
@@ -169,6 +181,12 @@
     return viewFrame.size;
 }
 
+-(void) viewDidLoad
+{
+    self.brain.expression = [CalculatorBrain expressionForPropertyList:[[NSUserDefaults standardUserDefaults] objectForKey:@"graphViewExpression"]];
+    display.text = [CalculatorBrain descriptionOfExpression: self.brain.expression];
+    [self updateExpressionInGrapView];
+}
 - (void)dealloc
 {
     [brain release];

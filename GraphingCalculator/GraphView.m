@@ -42,8 +42,11 @@
 }
 -(void)setOrigin:(CGPoint)newOriginPoint
 {
-    origin = newOriginPoint;
-    [self setNeedsDisplay];
+    if ((origin.x != newOriginPoint.x) && (origin.y != newOriginPoint.y)) {
+        origin = newOriginPoint;
+        [self setNeedsDisplay];
+        [delegate originMovedTo:origin for:self];
+    }
 }
 
 #define DEFAULT_SCALE 14;
@@ -52,6 +55,7 @@
     if (scale != newScale) {
         scale = newScale;
         [self setNeedsDisplay];
+        [delegate scaleChangedTo:scale for:self];
     }
 }
 -(CGFloat) scale

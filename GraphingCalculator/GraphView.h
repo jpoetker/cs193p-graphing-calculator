@@ -12,6 +12,9 @@
 
 @protocol GraphViewDelegate
 -(double) yValueGiven: (double) x for: (GraphView *)requestor;
+-(void) originMovedTo: (CGPoint) origin for: (GraphView *)requestor;
+-(void) scaleChangedTo: (CGFloat) scale for: (GraphView *)requestor;
+
 @end
 
 @interface GraphView : UIView {

@@ -27,8 +27,6 @@
         internalExpression = [[NSMutableArray alloc] init ];
     }
     [internalExpression addObject: term];
-    
-//    NSLog(@"%@", internalExpression);
 }
 
 - (void) releaseInternalExpression
@@ -40,6 +38,11 @@
 - (id) expression
 {
     return [[internalExpression copy] autorelease];
+}
+-(void) setExpression:(id)expression
+{
+    [internalExpression release];
+    internalExpression = [expression mutableCopy];
 }
 
 - (double) operand

@@ -21,7 +21,7 @@
 
 @property (readonly) double memory;
 @property (readonly) NSString *errorMessage;
-@property (readonly) id expression;
+@property (copy, nonatomic) id expression;
 
 - (void)setOperand:(double) aDouble;
 - (void)setVariableAsOperand:(NSString *)variableName;
