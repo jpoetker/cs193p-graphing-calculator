@@ -16,6 +16,7 @@
 @synthesize useLines;
 @synthesize useLinesSwitch;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,7 +31,28 @@
 {
     [graphView release];
     [useLinesSwitch release];
+    [expression release];
     [super dealloc];
+}
+
+-(void)setExpression:(id)anExpression
+{
+    [expression release];
+    expression = anExpression;
+    [expression retain];
+    [self.graphView setNeedsDisplay];
+}
+
+-(void)setScale:(CGFloat)newScale
+{
+    scale = newScale;
+    [self.graphView setNeedsDisplay];
+}
+
+-(void)setUseLines:(BOOL)shouldUseLines
+{
+    useLines = shouldUseLines;
+    [self.graphView setNeedsDisplay];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,14 +87,10 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
--(void)updateGraphDisplay
-{
-    self.graphView.scale = self.scale;
-    self.graphView.useLines = self.useLines;
-    [self.graphView setNeedsDisplay];
+    
+    // TODO: figure out if phone functions exist and return not upside down if so
+    return YES;
+    
 }
 
 -(double) yValueGiven: (double) x for: (GraphView *)requestor {
@@ -86,11 +104,26 @@
     } else {
         self.scale = self.scale / 2;
     }
-    [self updateGraphDisplay];
 }
 
 - (IBAction)useLinesChange:(UISwitch *)sender {
     self.useLines = sender.on;
-    [self updateGraphDisplay];
 }
+
+-(void)splitViewController:(UISplitViewController *)svc 
+    willHideViewController:(UIViewController *)aViewController 
+         withBarButtonItem:(UIBarButtonItem *)barButtonItem 
+      forPopoverController:(UIPopoverController *)pc
+{
+    barButtonItem.title = aViewController.title;
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+-(void)splitViewController:(UISplitViewController *)svc 
+    willShowViewController:(UIViewController *)aViewController 
+ invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
 @end

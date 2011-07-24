@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "CalculatorBrain.h"
+#import "GraphAndZoomViewController.h"
 
 @interface CalculatorViewController : UIViewController {
     IBOutlet UILabel *display;
     IBOutlet UILabel *memoryDisplay;
     CalculatorBrain *brain;
     BOOL userIsInTheMiddleOfTypingANumber;
+    GraphAndZoomViewController *graphViewController;
 }
+
+@property (readonly) GraphAndZoomViewController *graphViewController;
 
 - (IBAction)digitPressed:(UIButton *)sender;
 - (IBAction)operationPressed:(UIButton *)sender;

@@ -15,12 +15,26 @@
 
 @implementation CalculatorViewController
 
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = @"Calculator";
+    }
+    return self;
+}
+
 - (CalculatorBrain *)brain
 {
     if (!brain) brain = [[CalculatorBrain alloc] init];
     return brain;
 }
 
+- (GraphAndZoomViewController *) graphViewController
+{
+    if (!graphViewController) graphViewController = [[GraphAndZoomViewController alloc] init];
+    return graphViewController;
+}
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
@@ -123,25 +137,32 @@
     }
     
     [self applyEqualsIfNeccesaryForSolve];
+
+    self.graphViewController.title = [[CalculatorBrain descriptionOfExpression:self.brain.expression] stringByAppendingString:@" y"];
+    self.graphViewController.expression = self.brain.expression;
     
-//    id expression = self.brain.expression;
-//    NSDictionary *variables = [self generateTestVariables: expression];
-//    
-//    NSLog(@"Solving %@ with %@", expression, variables);
-//    
-//    double answer = [CalculatorBrain evaluateExpression:expression usingVariables:variables];
-//    
-//    display.text = [NSString stringWithFormat:@"%@ %g", [CalculatorBrain descriptionOfExpression:expression], answer];
-    GraphAndZoomViewController *gzvc = [[GraphAndZoomViewController alloc] init];
-    gzvc.title = [[CalculatorBrain descriptionOfExpression:self.brain.expression] stringByAppendingString:@" y"];
-    gzvc.expression = self.brain.expression;
-    [self.navigationController pushViewController: gzvc animated:YES];
-    [gzvc release];
+    if (self.graphViewController.view.window == nil) {
+        [self.navigationController pushViewController: self.graphViewController animated:YES];
+    }
 }
 
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
+{
+    if (self.graphViewController.splitViewController == nil) {
+        return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+    } else {
+        return YES;
+    }
+}
+
+- (CGSize)contentSizeForViewInPopover
+{
+    return self.view.bounds.size;
+}
 - (void)dealloc
 {
     [brain release];
+    [graphViewController release];
     [super dealloc];
 }
 

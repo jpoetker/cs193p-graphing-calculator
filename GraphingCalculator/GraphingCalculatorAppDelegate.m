@@ -8,6 +8,8 @@
 
 #import "GraphingCalculatorAppDelegate.h"
 #import "CalculatorViewController.h"
+
+
 @implementation GraphingCalculatorAppDelegate
 
 
@@ -22,14 +24,25 @@
     // Override point for customization after application launch.
     UINavigationController *navController = [[UINavigationController alloc]  init];
     CalculatorViewController *calcController = [[CalculatorViewController alloc] init];
-    calcController.title = @"Calculator";
     
     [navController pushViewController:calcController animated:NO];
     
-    [self.window addSubview:navController.view];                                          
-    [self.window makeKeyAndVisible];
+    if (self.iPad) {
+        UISplitViewController *svc = [[UISplitViewController alloc] init];
+        UINavigationController *rightNav = [[UINavigationController alloc] init];
+        [rightNav pushViewController:calcController.graphViewController animated:NO];
+        
+        svc.delegate = calcController.graphViewController;
+        svc.viewControllers = [NSArray arrayWithObjects: navController, rightNav, nil];
+        [navController release]; [rightNav release];
+        
+        [self.window addSubview:svc.view];
+    } else {
+        [self.window addSubview:navController.view];                                          
+    }
     
     [calcController release];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
