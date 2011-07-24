@@ -46,13 +46,13 @@
 -(void)setScale:(CGFloat)newScale
 {
     scale = newScale;
-    [self.graphView setNeedsDisplay];
+    self.graphView.scale = scale;
 }
 
 -(void)setUseLines:(BOOL)shouldUseLines
 {
     useLines = shouldUseLines;
-    [self.graphView setNeedsDisplay];
+    self.graphView.useLines = useLines;
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +73,20 @@
     self.graphView.scale = self.scale;
     self.graphView.useLines = self.useLines;
     self.useLinesSwitch.on = self.useLines;
+    
+    // Set up Pan Gesture
+    UIGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget: self.graphView action:@selector(pan:)];
+    [self.graphView addGestureRecognizer:panGesture];
+    [panGesture release];
+    
+    UIGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self.graphView action:@selector(pinch:)];
+    [self.graphView addGestureRecognizer:pinchGesture];
+    [pinchGesture release];
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self.graphView action:@selector(tap:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.graphView addGestureRecognizer:doubleTap];
+    [doubleTap release];
 }
 
 - (void)viewDidUnload
@@ -98,13 +112,6 @@
     return [CalculatorBrain evaluateExpression:self.expression usingVariables:values];
 }
 
-- (IBAction)zoomButtonPressed:(UIButton *)sender {
-    if ([@"Zoom In" isEqualToString: sender.titleLabel.text]) {
-        self.scale = self.scale * 2;
-    } else {
-        self.scale = self.scale / 2;
-    }
-}
 
 - (IBAction)useLinesChange:(UISwitch *)sender {
     self.useLines = sender.on;

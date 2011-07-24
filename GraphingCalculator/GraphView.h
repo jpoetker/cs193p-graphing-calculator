@@ -18,10 +18,16 @@
     id <GraphViewDelegate> delegate;
     float scale;
     BOOL useLines;
+    CGPoint origin;
 }
 
 @property (assign) id <GraphViewDelegate> delegate;
 @property CGFloat scale;
 @property BOOL useLines;
+@property CGPoint origin;
+
+-(void)pan:(UIPanGestureRecognizer *)sender;
+-(void)pinch:(UIPinchGestureRecognizer *)sender;
+-(void)tap:(UITapGestureRecognizer *)sender;
 
 @end

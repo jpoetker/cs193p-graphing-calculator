@@ -24,7 +24,6 @@
 @property (nonatomic) BOOL useLines;
 @property (nonatomic, retain) IBOutlet UISwitch *useLinesSwitch;
 
-- (IBAction)zoomButtonPressed:(UIButton *)sender;
 - (IBAction)useLinesChange:(UISwitch *)sender;
 
 

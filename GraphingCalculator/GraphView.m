@@ -19,6 +19,8 @@
 {
     self.useLines = YES;
     [super setContentMode: UIViewContentModeRedraw];
+    
+    self.origin = CGPointZero;
 }
 
 - (void)awakeFromNib {
@@ -32,6 +34,16 @@
         [self setup];
     }
     return self;
+}
+
+-(CGPoint)origin
+{
+    return origin;
+}
+-(void)setOrigin:(CGPoint)newOriginPoint
+{
+    origin = newOriginPoint;
+    [self setNeedsDisplay];
 }
 
 #define DEFAULT_SCALE 14;
@@ -57,6 +69,14 @@
     return useLines;
 }
 
+- (CGPoint) midPoint
+{
+    CGPoint midPoint;
+    midPoint.x = self.bounds.origin.x + self.bounds.size.width/2 + origin.x;
+    midPoint.y = self.bounds.origin.y + self.bounds.size.height/2 - origin.y;
+    return midPoint;
+}
+
 - (double) convertXPixelToGraphValueX: (CGFloat) x originAtPoint: (CGPoint) midPoint scale: (CGFloat) s
 {
     return ((x - midPoint.x) / s);
@@ -69,14 +89,10 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    if (!self.scale) self.scale = 14;
-    
     CGFloat scaleFactor = self.contentScaleFactor;
     
     
-    CGPoint midPoint;
-    midPoint.x = self.bounds.origin.x + self.bounds.size.width/2;
-    midPoint.y = self.bounds.origin.y + self.bounds.size.height/2;
+    CGPoint midPoint = [self midPoint];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
 
@@ -118,6 +134,33 @@
     
 }
 
+-(void)pan:(UIPanGestureRecognizer *)sender
+{
+    if ((sender.state == UIGestureRecognizerStateChanged) ||
+        (sender.state == UIGestureRecognizerStateEnded))
+    {
+        CGPoint translation = [sender translationInView:self];
+        self.origin = CGPointMake(self.origin.x+translation.x, self.origin.y-translation.y);
+        [sender setTranslation:CGPointZero inView:self];
+    }
+}
+
+-(void)pinch:(UIPinchGestureRecognizer *)sender 
+{
+    if ((sender.state == UIGestureRecognizerStateChanged) ||
+        (sender.state == UIGestureRecognizerStateEnded)) 
+    {
+        self.scale *= sender.scale;
+        sender.scale = 1;
+    }
+}
+
+-(void)tap:(UITapGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        self.origin = CGPointZero;
+    }
+}
 - (void)dealloc
 {
     [super dealloc];
