@@ -28,7 +28,6 @@
 		7E37A7AB13D51ACA005ECCCA /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7AA13D51ACA005ECCCA /* GraphView.m */; };
 		7E37A7AE13D51B6D005ECCCA /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7AD13D51B6D005ECCCA /* AxesDrawer.m */; };
 		7E37A7B713D51E4F005ECCCA /* GraphAndZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */; };
-		7E37A7B813D51E4F005ECCCA /* GraphAndZoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */; };
 		7E62234813DC416C00801792 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E62234613DC416C00801792 /* MainWindow-iPad.xib */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +73,6 @@
 		7E37A7AD13D51B6D005ECCCA /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 		7E37A7B413D51E4F005ECCCA /* GraphAndZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphAndZoomViewController.h; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.h; sourceTree = SOURCE_ROOT; };
 		7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphAndZoomViewController.m; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.m; sourceTree = SOURCE_ROOT; };
-		7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphAndZoomViewController.xib; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.xib; sourceTree = SOURCE_ROOT; };
 		7E62234713DC416C00801792 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +142,6 @@
 				7E37A7A313D500CD005ECCCA /* CalculatorViewController.m */,
 				7E37A7B413D51E4F005ECCCA /* GraphAndZoomViewController.h */,
 				7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */,
-				7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */,
 				7E37A7A913D51ACA005ECCCA /* GraphView.h */,
 				7E37A7AA13D51ACA005ECCCA /* GraphView.m */,
 				7E37A77813D4FFD8005ECCCA /* GraphingCalculatorAppDelegate.h */,
@@ -271,7 +268,6 @@
 				7E37A77D13D4FFD8005ECCCA /* MainWindow.xib in Resources */,
 				7E37A7A613D500E2005ECCCA /* CalculatorViewController.xib in Resources */,
 				7E37A7A813D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg in Resources */,
-				7E37A7B813D51E4F005ECCCA /* GraphAndZoomViewController.xib in Resources */,
 				7E62234813DC416C00801792 /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

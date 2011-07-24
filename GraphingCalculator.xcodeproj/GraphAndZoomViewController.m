@@ -14,8 +14,6 @@
 @synthesize expression;
 @synthesize scale;
 @synthesize useLines;
-@synthesize useLinesSwitch;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,10 +25,16 @@
     return self;
 }
 
+-(void)loadView
+{
+    self.graphView = [[GraphView alloc] initWithFrame:CGRectZero];
+    self.graphView.backgroundColor = [UIColor whiteColor];
+    self.view = self.graphView;
+}
+
 - (void)dealloc
 {
     [graphView release];
-    [useLinesSwitch release];
     [expression release];
     [super dealloc];
 }
@@ -72,8 +76,7 @@
     self.graphView.delegate = self;
     self.graphView.scale = self.scale;
     self.graphView.useLines = self.useLines;
-    self.useLinesSwitch.on = self.useLines;
-    
+
     // Set up Pan Gesture
     UIGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget: self.graphView action:@selector(pan:)];
     [self.graphView addGestureRecognizer:panGesture];
@@ -92,7 +95,6 @@
 - (void)viewDidUnload
 {
     [self setGraphView:nil];
-    [self setUseLinesSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -112,10 +114,6 @@
     return [CalculatorBrain evaluateExpression:self.expression usingVariables:values];
 }
 
-
-- (IBAction)useLinesChange:(UISwitch *)sender {
-    self.useLines = sender.on;
-}
 
 -(void)splitViewController:(UISplitViewController *)svc 
     willHideViewController:(UIViewController *)aViewController 
