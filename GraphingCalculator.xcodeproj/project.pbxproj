@@ -29,6 +29,7 @@
 		7E37A7AE13D51B6D005ECCCA /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7AD13D51B6D005ECCCA /* AxesDrawer.m */; };
 		7E37A7B713D51E4F005ECCCA /* GraphAndZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */; };
 		7E37A7B813D51E4F005ECCCA /* GraphAndZoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */; };
+		7E62234813DC416C00801792 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E62234613DC416C00801792 /* MainWindow-iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		7E37A7B413D51E4F005ECCCA /* GraphAndZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphAndZoomViewController.h; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.h; sourceTree = SOURCE_ROOT; };
 		7E37A7B513D51E4F005ECCCA /* GraphAndZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphAndZoomViewController.m; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.m; sourceTree = SOURCE_ROOT; };
 		7E37A7B613D51E4F005ECCCA /* GraphAndZoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphAndZoomViewController.xib; path = GraphingCalculator.xcodeproj/GraphAndZoomViewController.xib; sourceTree = SOURCE_ROOT; };
+		7E62234713DC416C00801792 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		7E37A76F13D4FFD8005ECCCA /* GraphingCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				7E62234513DC416300801792 /* iPad */,
 				7E37A7A713D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg */,
 				7E37A7AC13D51B6D005ECCCA /* AxesDrawer.h */,
 				7E37A7AD13D51B6D005ECCCA /* AxesDrawer.m */,
@@ -184,6 +187,14 @@
 				7E37A78F13D4FFD9005ECCCA /* GraphingCalculatorTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E62234513DC416300801792 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				7E62234613DC416C00801792 /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				7E37A7A613D500E2005ECCCA /* CalculatorViewController.xib in Resources */,
 				7E37A7A813D5162F005ECCCA /* 0000003502150_001c_V001_zp.jpeg in Resources */,
 				7E37A7B813D51E4F005ECCCA /* GraphAndZoomViewController.xib in Resources */,
+				7E62234813DC416C00801792 /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +362,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		7E62234613DC416C00801792 /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E62234713DC416C00801792 /* en */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -394,7 +414,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraphingCalculator/GraphingCalculator-Prefix.pch";
 				INFOPLIST_FILE = "GraphingCalculator/GraphingCalculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -407,7 +429,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraphingCalculator/GraphingCalculator-Prefix.pch";
 				INFOPLIST_FILE = "GraphingCalculator/GraphingCalculator-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -476,6 +500,7 @@
 				7E37A79813D4FFD9005ECCCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7E37A79913D4FFD9005ECCCA /* Build configuration list for PBXNativeTarget "GraphingCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +509,7 @@
 				7E37A79B13D4FFD9005ECCCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

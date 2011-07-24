@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface GraphingCalculatorAppDelegate : NSObject <UIApplicationDelegate> {
-
+    
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
+@property (readonly) BOOL iPad;
 @end
